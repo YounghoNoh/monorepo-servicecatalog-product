@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ECSCICDPipeline3202AC4C": {
+      "Properties": {
+        "Description": "SC CI Using Docker Compose Product",
+        "Distributor": "SK Cloud Transformation Group",
+        "Name": "image-build-product",
+        "Owner": "jingood2@sk.com",
+        "ProvisioningArtifactParameters": [
+          {
+            "Description": "ECS CICD Pieline with Github",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/a95936c572a5563fca48e4b6007e09dfc97ae1d30eda80bce7d627c33277ff1e.json",
+              },
+            },
+            "Name": "v1",
+          },
+          {
+            "Description": "ECS CICD Pieline with CodeCommit",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/40f5efe788a984f904738ad178ae80e501017b98be6824e618d2cde01f0cb07e.json",
+              },
+            },
+            "Name": "v2",
+          },
+          {
+            "Description": "ECS CICD Pieline with S3",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/91c4cd948073c7e0f9b9f374e4b55bc81a9857a19abe9ec2d62ef56965a44075.json",
+              },
+            },
+            "Name": "v3",
+          },
+          {
+            "Description": "Github CICD",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/8136be43f832c20324a3fd65a2d3eeb747d41e95db52862715df7e8d1aa1b951.json",
+              },
+            },
+            "Name": "v4",
+          },
+          {
+            "Description": "CICD Pieline V5",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/aa92bcbc508cab8247687910f892d3503127fc91d2289e3b4130d9e34a48316e.yaml",
+              },
+            },
+            "Name": "v5",
+          },
+          {
+            "Description": "Github Docker Compose CICD",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/8136be43f832c20324a3fd65a2d3eeb747d41e95db52862715df7e8d1aa1b951.json",
+              },
+            },
+            "Name": "v6",
+          },
+          {
+            "Description": "Github Docker Compose CD",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/6779feec304d10fdb12f4ea9bf9159feb7feff592c7249f0a50285036b8fd21f.json",
+              },
+            },
+            "Name": "v7",
+          },
+        ],
+      },
+      "Type": "AWS::ServiceCatalog::CloudFormationProduct",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;

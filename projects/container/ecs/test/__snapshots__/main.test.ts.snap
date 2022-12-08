@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot 1`] = `
+{
+  "Parameters": {
+    "BootstrapVersion": {
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]",
+      "Type": "AWS::SSM::Parameter::Value<String>",
+    },
+  },
+  "Resources": {
+    "ecsclusterproduct66294721": {
+      "Properties": {
+        "Description": "SC ECS Cluster Product",
+        "Distributor": "SK Cloud Transformation Group",
+        "Name": "ecs-cluster-product",
+        "Owner": "jingood2@sk.com",
+        "ProvisioningArtifactParameters": [
+          {
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/029774779f7044014f0103ab9b341f26446f4f9bd3d1b9dfbefbc537640f5e97.json",
+              },
+            },
+            "Name": "v1",
+          },
+        ],
+      },
+      "Type": "AWS::ServiceCatalog::CloudFormationProduct",
+    },
+    "ecsec2serviceproductCF732215": {
+      "Properties": {
+        "Description": "SC ECS Serivce Product",
+        "Distributor": "SK Cloud Transformation Group",
+        "Name": "ecs-ec2-service-product",
+        "Owner": "jingood2@sk.com",
+        "ProvisioningArtifactParameters": [
+          {
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/d2367d41a2a67f7da1d4239a3a30cc2766c4e424f46d3a41dd566f33d90a1485.json",
+              },
+            },
+            "Name": "v1",
+          },
+          {
+            "Description": "ECS on EC2 with ADOT Collector",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/b3c364faf9089c15fe7194689a3dd30719fb08e270540faa55ffceea2fa3d240.json",
+              },
+            },
+            "Name": "v2",
+          },
+        ],
+      },
+      "Type": "AWS::ServiceCatalog::CloudFormationProduct",
+    },
+    "ecsfargateserviceproduct2D955E64": {
+      "Properties": {
+        "Description": "SC ECS Serivce Product",
+        "Distributor": "SK Cloud Transformation Group",
+        "Name": "ecs-fargate-service-product",
+        "Owner": "jingood2@sk.com",
+        "ProvisioningArtifactParameters": [
+          {
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/ac5a5a066ce979e7c2542c580aeb66276df2523d60ef0ee726a774bfd290996f.json",
+              },
+            },
+            "Name": "v1",
+          },
+          {
+            "Description": "ECS Fargate with ADOT Collector sidecar",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/9d450901587d09aea3961ae35c5422b58f1ae55bf4fd003bd982b8d2520b04d0.json",
+              },
+            },
+            "Name": "v2",
+          },
+          {
+            "Description": "ECS Fargate with ADOT Collector sidecar Loki",
+            "DisableTemplateValidation": false,
+            "Info": {
+              "LoadTemplateFromURL": {
+                "Fn::Sub": "https://s3.\${AWS::Region}.\${AWS::URLSuffix}/cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}/d2ab291d296181f5fd7eb43aab5c219414bbd99c7cced5936e09af32a2a28155.json",
+              },
+            },
+            "Name": "v3",
+          },
+        ],
+      },
+      "Type": "AWS::ServiceCatalog::CloudFormationProduct",
+    },
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                  ],
+                  {
+                    "Ref": "BootstrapVersion",
+                  },
+                ],
+              },
+            ],
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI.",
+        },
+      ],
+    },
+  },
+}
+`;
